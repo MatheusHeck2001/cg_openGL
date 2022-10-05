@@ -32,7 +32,7 @@ public class HelloWorld {
 		init();
 		
 		tankobj = new ObjModel();
-		tankobj.loadObj("tank.obj");
+		tankobj.loadObj("src/OpenGL_2/res/espada.obj");
 		
 		
 		loop();

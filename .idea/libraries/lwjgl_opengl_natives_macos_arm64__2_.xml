@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="lwjgl-opengl-natives-macos-arm64 (2)">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/lib/lwjgl-opengl-natives-macos-arm64.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
