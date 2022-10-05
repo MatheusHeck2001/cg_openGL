@@ -205,7 +205,7 @@ public class HelloWorld {
 		   glRotatef(rotxAngle, 1.0f, 0.0f, 0.0f);
 		   glRotatef(rotyAngle, 0.0f, 1.0f, 0.0f);
 		   glRotatef(rotzAngle, 0.0f, 0.0f, 1.0f);
-		   glScalef(0.01f, 0.01f, 0.01f);
+		   glScalef(0.001f, 0.001f, 0.001f);
 		   tankobj.desenhaOPENGL();
 		   
 		   glLoadIdentity();
