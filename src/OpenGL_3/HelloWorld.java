@@ -25,6 +25,8 @@ public class HelloWorld {
 	// The window handle
 	private long window;
 	ObjModel tankobj = null;
+	ObjModel cat = null;
+	ObjModel car = null;
 	float rotxAngle = 0;
 	float rotyAngle = 0;
 	float rotzAngle = 0;
@@ -46,6 +48,14 @@ public class HelloWorld {
 		tankobj = new ObjModel();
 		tankobj.loadObj("src/OpenGL_3/res/x-35_obj.obj");
 		tankobj.createTextureBase("src/OpenGL_3/res/x-35_obj.jpg", 1024, 1024);
+
+		cat = new ObjModel();
+		cat.loadObj("src/OpenGL_3/res/cat.obj");
+		cat.createTextureBase("src/OpenGL_3/res/x-35_obj.jpg", 700, 700);
+
+		car = new ObjModel();
+		car.loadObj("src/OpenGL_3/res/car.obj");
+		car.createTextureBase("src/OpenGL_3/res/x-35_obj_b.jpg", 1224, 1224);
 
 		//glfwMakeContextCurrent(window);
 		loop();
@@ -274,6 +284,8 @@ public class HelloWorld {
 		   glScalef(0.005f, 0.005f, 0.005f);
 		   		   
 		   tankobj.desenhaOPENGL();
+		   cat.desenhaOPENGL();
+		   car.desenhaOPENGL();
 		   
 		   glPopMatrix();
 		   
@@ -284,6 +296,18 @@ public class HelloWorld {
 		   glRotatef(90, 1.0f, 0.0f, 0.0f);
 		   glScalef(0.005f, 0.005f, 0.005f);   
 		   tankobj.desenhaOPENGL();
+
+			glBindTexture(GL_TEXTURE_2D, texturaDoGatinho);
+			glTranslated(2, 0.5, 3);
+			glRotatef(90, 1.0f, 0.0f, 0.0f);
+			glScalef(0.005f, 0.005f, 0.005f);
+			cat.desenhaOPENGL();
+
+			glBindTexture(GL_TEXTURE_2D, texturaDoGatinho);
+			glTranslated(5, 1, 0);
+			glRotatef(90, 1.0f, 0.0f, 0.0f);
+			glScalef(0.005f, 0.005f, 0.005f);
+			car.desenhaOPENGL();
 		   
 		   glPopMatrix();
 		   
