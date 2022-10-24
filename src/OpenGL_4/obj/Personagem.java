@@ -6,10 +6,8 @@ import static org.lwjgl.opengl.GL11.glRotatef;
 import static org.lwjgl.opengl.GL11.glScalef;
 import static org.lwjgl.opengl.GL11.glTranslatef;
 
-import org.lwjgl.util.vector.Matrix4f;
-
-import Math3D.Matriz4x4;
-import Math3D.Vetor3D;
+import OpenGL_4.Math3D.Matriz4x4;
+import OpenGL_4.Math3D.Vetor3D;
 
 public class Personagem extends Object3D {
 	

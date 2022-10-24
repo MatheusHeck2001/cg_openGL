@@ -7,11 +7,11 @@ import org.lwjgl.system.*;
 import org.lwjgl.util.glu.GLU;
 
 
-import obj.Esfera3D;
-import obj.ObjModel;
-import obj.Personagem;
-import obj.Vector3f;
-import util.TextureLoader;
+import OpenGL_4.obj.Esfera3D;
+import OpenGL_4.obj.ObjModel;
+import OpenGL_4.obj.Personagem;
+import OpenGL_4.obj.Vector3f;
+import OpenGL_4.util.TextureLoader;
 
 import java.awt.image.BufferedImage;
 
@@ -24,7 +24,7 @@ import java.util.Random;
 import static org.lwjgl.glfw.Callbacks.*;
 import static org.lwjgl.glfw.GLFW.*;
 import static org.lwjgl.opengl.GL11.*;
-//import static org.lwjgl.opengl.GL20.*;
+import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
@@ -65,7 +65,7 @@ public class HelloWorld {
 		init();
 		
 		tankobj = new ObjModel();
-		tankobj.loadObj("x-35_obj.obj");
+		tankobj.loadObj("src/OpenGL_4/res/x-35_obj.obj");
 		tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
@@ -187,9 +187,9 @@ public class HelloWorld {
 		GL.createCapabilities();
 		
 		//BufferedImage bfm = TextureLoader.loadImage("gatinho01.jpg");
-		BufferedImage bfm1 = TextureLoader.loadImage("gatinho01.jpg");
+		BufferedImage bfm1 = TextureLoader.loadImage("src/OpenGL_4/res/gatinho01.jpg");
 		texturaDoGatinho = TextureLoader.loadTexture(bfm1);
-		BufferedImage bfm2 = TextureLoader.loadImage("x35_b.jpg");
+		BufferedImage bfm2 = TextureLoader.loadImage("src/OpenGL_4/res/x35_b.jpg");
 		texturaDoDennis = TextureLoader.loadTexture(bfm2);
 
 		// Set the clear color

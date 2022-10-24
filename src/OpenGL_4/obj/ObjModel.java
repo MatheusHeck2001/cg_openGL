@@ -18,11 +18,11 @@ import java.util.concurrent.ConcurrentHashMap;
 import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageOutputStream;
 
-import Math3D.Matriz4x4;
-import Math3D.Triangulo3d;
-import Math3D.Vetor3D;
-import obj.Vector2f;
-import obj.Vector3f;
+import OpenGL_4.Math3D.Matriz4x4;
+import OpenGL_4.Math3D.Triangulo3d;
+import OpenGL_4.Math3D.Vetor3D;
+import OpenGL_4.obj.Vector2f;
+import OpenGL_4.obj.Vector3f;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
