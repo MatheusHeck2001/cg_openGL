@@ -193,7 +193,7 @@ public class DrawModel {
                     // k is the frame to draw
                     // i is the current triangle of the frame
                     // j is the current vertex of the triangle
-
+/*
                     glTexCoord2f( (float)TexCoord[ Meshes[i].index_st[j] ].s / header.skinwidth,
                             (float)TexCoord[ Meshes[i].index_st[j] ].t / header.skinheight );
 
@@ -202,7 +202,7 @@ public class DrawModel {
                     glVertex3f( (Vertices[ Meshes[i].index_xyz[j] ].v[0] * frame[k].scale[0]) + frame[k].translate[0],
                             (Vertices[ Meshes[i].index_xyz[j] ].v[1] * frame[k].scale[1]) + frame[k].translate[1],
                             (Vertices[ Meshes[i].index_xyz[j] ].v[2] * frame[k].scale[2]) + frame[k].translate[2] );
-                }
+                */}
             }
             glEnd();
 

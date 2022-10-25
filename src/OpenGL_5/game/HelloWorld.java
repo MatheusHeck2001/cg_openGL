@@ -6,11 +6,11 @@ import org.lwjgl.system.*;
 import org.lwjgl.util.glu.GLU;
 
 
-import obj.Esfera3D;
-import obj.ObjModel;
-import obj.Personagem;
-import obj.Vector3f;
-import util.TextureLoader;
+import OpenGL_5.obj.Esfera3D;
+import OpenGL_5.obj.ObjModel;
+import OpenGL_5.obj.Personagem;
+import OpenGL_5.obj.Vector3f;
+import OpenGL_5.util.TextureLoader;
 
 import java.awt.image.BufferedImage;
 
@@ -61,7 +61,7 @@ public class HelloWorld {
 		init();
 		
 		tankobj = new ObjModel();
-		tankobj.loadObj("x-35_obj.obj");
+		tankobj.loadObj("src/OpenGL_5/res/x-35_obj.obj");
 		tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
@@ -183,9 +183,9 @@ public class HelloWorld {
 		GL.createCapabilities();
 		
 		//BufferedImage bfm = TextureLoader.loadImage("gatinho01.jpg");
-		BufferedImage bfm1 = TextureLoader.loadImage("gatinho01.jpg");
+		BufferedImage bfm1 = TextureLoader.loadImage("src/OpenGL_5/res/gatinho01.jpg");
 		texturaDoGatinho = TextureLoader.loadTexture(bfm1);
-		BufferedImage bfm2 = TextureLoader.loadImage("x35_b.jpg");
+		BufferedImage bfm2 = TextureLoader.loadImage("src/OpenGL_5/res/x35_b.jpg");
 		texturaDoDennis = TextureLoader.loadTexture(bfm2);
 
 		// Set the clear color

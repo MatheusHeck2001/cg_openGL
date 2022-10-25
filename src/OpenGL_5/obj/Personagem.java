@@ -10,9 +10,9 @@ import static org.lwjgl.opengl.GL11.glTranslatef;
 import org.lwjgl.util.glu.Sphere;
 import org.lwjgl.util.vector.Matrix4f;
 
-import Math3D.Matriz4x4;
-import Math3D.Vetor3D;
-import game.Constantes;
+import OpenGL_5.Math3D.Matriz4x4;
+import OpenGL_5.Math3D.Vetor3D;
+import OpenGL_5.game.Constantes;
 
 public class Personagem extends Object3D {
 	Sphere sphere = new Sphere();
