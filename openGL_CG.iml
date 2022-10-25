@@ -22,5 +22,7 @@
     <orderEntry type="library" name="lwjgl-opengl-natives-windows" level="project" />
     <orderEntry type="library" name="lwjgl" level="project" />
     <orderEntry type="library" name="lwjgl_util-2.9.0" level="project" />
+    <orderEntry type="library" name="lwjgl_util-2.9.0" level="project" />
+    <orderEntry type="library" name="lwjgl_util-2.9.0 (2)" level="project" />
   </component>
 </module>

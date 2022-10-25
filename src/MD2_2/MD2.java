@@ -1,10 +1,40 @@
 package MD2_2;
 
-public class MD2 {
-    public MD2(){};
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import java.nio.channels.FileChannel;
 
-    boolean LoadModel(String filename) {
-        return false;
+public class MD2 {
+    boolean LoadModel(String filename) throws IOException {
+        Header header = new Header();
+        char[] buffer = new char[]{};
+        Frame[] frame = new Frame[]{};
+        Vector[] vertices = new Vector[]{};
+        int[] normals = new int[]{};
+
+        try (RandomAccessFile aFile = new RandomAccessFile(filename, "r");
+             FileChannel inChannel = aFile.getChannel();) {
+
+            //Buffer size is 1024
+            ByteBuffer byteBuffer = ByteBuffer.allocate(4);
+            byteBuffer.order(ByteOrder.LITTLE_ENDIAN);
+
+            while (inChannel.read(byteBuffer) > 0) {
+                byteBuffer.flip();
+                for (int i = 0; i < byteBuffer.limit(); i++) {
+                    System.out.print((char) byteBuffer.get());
+                }
+                header.ident = byteBuffer.getInt();
+                byteBuffer.clear(); // do something with the data and clear/compact it.
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return true;
     }
 
     boolean LoadSkin(String filename) {
@@ -37,9 +67,9 @@ public class MD2 {
     private float m_scale;
 
     public MD2(){
-        m_vertices      = 0;
-        m_glcmds        = 0;
-        m_lightnormals  = 0;
+        m_vertices      = new Vector[]{new Vector()};
+        m_glcmds        = new int[]{0};
+        m_lightnormals  = new int[]{0};
 
         num_frames      = 0;
         num_xyz         = 0;

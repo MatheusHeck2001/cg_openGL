@@ -1,6 +1,6 @@
 package MD2_2;
 
 public class Triangle {
-    public int[] index_xyz;
-    public int[] index_st;
+    public short[] index_xyz;
+    public short[] index_st;
 }

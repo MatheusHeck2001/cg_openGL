@@ -535,14 +535,12 @@ public class MD2 {
     }
 
     public static void main(String[] args) {
-        for (int i = 0; i < args.length; i++) {
-            try {
-                Model model = loadMD2(args[i]);
-                System.err.println("Successfully parsed " + args[i]);
-            } catch (IOException e) {
-                System.err.println("Error parsing " + args[i] + ":");
-                e.printStackTrace();
-            }
+        try {
+            Model model = loadMD2("src/MD2_2/female.md2");
+            System.err.println("Successfully parsed ");
+        } catch (IOException e) {
+            System.err.println("Error parsing ");
+            e.printStackTrace();
         }
     }
 }
