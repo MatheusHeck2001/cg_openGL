@@ -357,7 +357,7 @@ public class MD2 {
         return md2p;
     }
 
-
+    public static FileHeader fileHeader;
     private static FileHeader readHeader(ByteBuffer buf) {
         FileHeader header = new FileHeader();
         header.ident      = buf.getInt();
@@ -377,6 +377,7 @@ public class MD2 {
         header.ofs_frames = buf.getInt();
         header.ofs_glcmds = buf.getInt();
         header.ofs_end    = buf.getInt();
+        fileHeader = header;
         return header;
     }
 

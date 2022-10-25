@@ -20,5 +20,10 @@ public class Vetor3D {
 		return "("+x+","+y+","+z+","+w+")";
 	}
 	
-	
+	public void multiplicaVetor3d(Vetor3D vetor3D){
+		x *= vetor3D.x;
+		y *= vetor3D.y;
+		z *= vetor3D.z;
+		w *= vetor3D.w;
+	}
 }
