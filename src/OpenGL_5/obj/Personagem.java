@@ -28,6 +28,8 @@ public class Personagem extends Object3D {
 	
 	float raio = 0.4f;
 
+	float massa = 50;
+
 
 	public Personagem(float x, float y, float z,ObjModel model) {
 		super(x, y, z);
@@ -45,7 +47,7 @@ public class Personagem extends Object3D {
 		y += frente.y*vel*diftime/1000.0f;
 		z += frente.z*vel*diftime/1000.0f;
 		
-		//Testar Colis�o
+		//Testar Colisão
 		
 		for(int i = 0; i < Constantes.listaDeObjetos.size();i++) {
 			Object3D obj = Constantes.listaDeObjetos.get(i);
@@ -60,11 +62,9 @@ public class Personagem extends Object3D {
 				y = oldy;
 				z = oldz;
 				
-				obj.vx = frente.x*vel*1.5f;
-				obj.vy = frente.y*vel*1.5f;
-				obj.vz = frente.z*vel*1.5f;
-				
-				continue;
+				obj.vx = frente.x*vel*(this.massa - obj.massa);
+				obj.vy = frente.y*vel*(this.massa - obj.massa);
+				obj.vz = frente.z*vel*(this.massa - obj.massa);
 			}
 			
 		}

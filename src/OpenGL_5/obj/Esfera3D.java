@@ -12,6 +12,7 @@ public class Esfera3D extends Object3D {
 	public Esfera3D(float x, float y, float z, float r) {
 		super(x, y, z);
 		raio = r;
+		massa = r*50;
 	}
 	
 	@Override
@@ -37,3 +38,6 @@ public class Esfera3D extends Object3D {
 		z += vz*diftime/1000.0f;
 	}
 }
+//- Implementar colisões entre as esferas com troca de energia.
+//
+//- Modificar a movimentação do avião e possibilitar que ele suba e deça.
