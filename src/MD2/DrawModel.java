@@ -16,6 +16,7 @@ import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWVidMode;
 import org.lwjgl.opengl.GL;
 import org.lwjgl.system.MemoryStack;
+import org.lwjgl.util.vector.Vector4f;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;
@@ -68,7 +69,8 @@ public class DrawModel {
 
     private void initModel() {
         try {
-            Model mod = MD2.loadMD2(getClass().getClassLoader().getResourceAsStream("src/MD2/knight.md2"));
+            MD2 teste = new MD2();
+            this.mod = MD2.loadMD2("src/MD2/female.md2");
             m = new ModelDraw();
             m.mod = mod;
             m.interp_frame = (Frame) m.mod.f[0].clone();
@@ -138,7 +140,6 @@ public class DrawModel {
 
         init();
 
-
         loop();
 
         // Free the window callbacks and destroy the window
@@ -182,29 +183,10 @@ public class DrawModel {
 
         int angle = 0;
         while ( !glfwWindowShouldClose(window) ) {
-
-            glBegin( GL_TRIANGLES );
             // draw each triangle
-            for( int i = 0; i < MD2.fileHeader.num_tris; i++ )
-            {
-                // draw triangle #i
-                for( int j = 0; j < 3; j++ )
-                {
-                    // k is the frame to draw
-                    // i is the current triangle of the frame
-                    // j is the current vertex of the triangle
-/*
-                    glTexCoord2f( (float)TexCoord[ Meshes[i].index_st[j] ].s / header.skinwidth,
-                            (float)TexCoord[ Meshes[i].index_st[j] ].t / header.skinheight );
-
-                    glNormal3fv( anorms[ Vertices[ Meshes[i].index_xyz[j] ].lightnormalindex ] );
-
-                    glVertex3f( (Vertices[ Meshes[i].index_xyz[j] ].v[0] * frame[k].scale[0]) + frame[k].translate[0],
-                            (Vertices[ Meshes[i].index_xyz[j] ].v[1] * frame[k].scale[1]) + frame[k].translate[1],
-                            (Vertices[ Meshes[i].index_xyz[j] ].v[2] * frame[k].scale[2]) + frame[k].translate[2] );
-                */}
-            }
-            glEnd();
+            /*for( int i = 0; i < this.mod.f.length; i++ ) {
+                drawFrame(i);
+            }*/
 
 
             glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
@@ -276,15 +258,13 @@ public class DrawModel {
 //
 //            aviao.DesenhaSe();
 
-//		   glPushMatrix();
-//
-//		   glBindTexture(GL_TEXTURE_2D, texturaDoGatinho);
-//		   glTranslated(0, 0.5, 0);
-//		   glRotatef(90, 1.0f, 0.0f, 0.0f);
-//		   glScalef(0.005f, 0.005f, 0.005f);
-//		   tankobj.desenhaOPENGL();
-//
-//		   glPopMatrix();
+		   glPushMatrix();
+
+		   glTranslated(0, 0.5, 0);
+		   glRotatef(90, 1.0f, 0.0f, 0.0f);
+		   glScalef(0.005f, 0.005f, 0.005f);
+
+		   glPopMatrix();
 
 
 
@@ -297,7 +277,7 @@ public class DrawModel {
             difTime = actualTime-System.currentTimeMillis();
             actualTime = System.currentTimeMillis();
             if((lasttime/1000)!=(actualTime/1000)) {
-                System.out.println("FPS "+frame);
+                //System.out.println("FPS "+frame);
                 frame=0;
                 lasttime = actualTime;
             }

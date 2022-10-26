@@ -50,6 +50,7 @@ public class MD2 {
             throw new IOException("unsuitable model -- frames aren't same");
         }
         Model m = new Model();
+
         m.tri = ((IFrame) ifr.get(0)).tri;
         m.f = new Frame[ifr.size()];
         for (int i = 0; i < ifr.size(); i++) {
@@ -357,7 +358,6 @@ public class MD2 {
         return md2p;
     }
 
-    public static FileHeader fileHeader;
     private static FileHeader readHeader(ByteBuffer buf) {
         FileHeader header = new FileHeader();
         header.ident      = buf.getInt();
@@ -377,7 +377,6 @@ public class MD2 {
         header.ofs_frames = buf.getInt();
         header.ofs_glcmds = buf.getInt();
         header.ofs_end    = buf.getInt();
-        fileHeader = header;
         return header;
     }
 
