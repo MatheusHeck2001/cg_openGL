@@ -12,6 +12,8 @@ public class Object3D {
 	float raio = 0;
 
 	float massa = 0;
+
+	float vel;
 	
 	public Object3D(float x, float y, float z) {
 		super();

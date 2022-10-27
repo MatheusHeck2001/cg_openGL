@@ -307,7 +307,7 @@ public class HelloWorld {
 			difTime = actualTime-System.currentTimeMillis();
 			actualTime = System.currentTimeMillis();
 			if((lasttime/1000)!=(actualTime/1000)) {
-				//System.out.println("FPS "+frame);
+				System.out.println("FPS "+frame);
 				frame=0;
 				lasttime = actualTime;
 			}

@@ -18,7 +18,6 @@ public class Personagem extends Object3D {
 	Sphere sphere = new Sphere();
 	
 	ObjModel model = null;
-	float vel = 0.5f;
 	
 	float rotxAngle = 0;
 	float rotyAngle = 180;
@@ -34,6 +33,7 @@ public class Personagem extends Object3D {
 	public Personagem(float x, float y, float z,ObjModel model) {
 		super(x, y, z);
 		this.model = model;
+		vel = 0.5f;
 		frente = new Vector3f(0,0,1);
 	}
 	
@@ -66,9 +66,7 @@ public class Personagem extends Object3D {
 				obj.vy = frente.y*vel*(this.massa - obj.massa);
 				obj.vz = frente.z*vel*(this.massa - obj.massa);
 
-				/*obj.vx = frente.x*vel*2*this.massa/(this.massa + obj.massa);
-				obj.vy = frente.y*vel*2*this.massa/(this.massa + obj.massa);
-				obj.vz = frente.z*vel*2*this.massa/(this.massa + obj.massa);*/
+				obj.vel = Math.abs(obj.vz);
 
 			}
 			
