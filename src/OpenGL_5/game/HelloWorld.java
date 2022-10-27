@@ -62,7 +62,7 @@ public class HelloWorld {
 		
 		tankobj = new ObjModel();
 		tankobj.loadObj("src/OpenGL_5/res/x-35_obj.obj");
-		tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
+		//tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
 		
@@ -102,10 +102,10 @@ public class HelloWorld {
 				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
 			
 			if ( key == GLFW_KEY_W) {
-				//posZ-=0.1f;
+				aviao.setRotX(-15);
 			}
 			if ( key == GLFW_KEY_S) {
-//				posZ+=0.1f;
+				aviao.setRotX(15);
 			}
 			if ( key == GLFW_KEY_A) {
 				aviao.setRotY(15);

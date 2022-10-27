@@ -47,15 +47,15 @@ public class HelloWorld {
 		
 		tankobj = new ObjModel();
 		tankobj.loadObj("src/OpenGL_3/res/x-35_obj.obj");
-		tankobj.createTextureBase("src/OpenGL_3/res/x-35_obj.jpg", 1024, 1024);
+		//tankobj.createTextureBase("src/OpenGL_3/res/x-35_obj.jpg", 1024, 1024);
 
 		cat = new ObjModel();
 		cat.loadObj("src/OpenGL_3/res/cat.obj");
-		cat.createTextureBase("src/OpenGL_3/res/x-35_obj.jpg", 700, 700);
+		//cat.createTextureBase("src/OpenGL_3/res/x-35_obj.jpg", 700, 700);
 
 		car = new ObjModel();
 		car.loadObj("src/OpenGL_3/res/car.obj");
-		car.createTextureBase("src/OpenGL_3/res/x-35_obj_b.jpg", 1224, 1224);
+		//car.createTextureBase("src/OpenGL_3/res/x-35_obj_b.jpg", 1224, 1224);
 
 		//glfwMakeContextCurrent(window);
 		loop();
