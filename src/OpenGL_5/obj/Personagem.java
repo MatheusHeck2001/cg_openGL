@@ -28,7 +28,7 @@ public class Personagem extends Object3D {
 	
 	float raio = 0.4f;
 
-	float massa = 50;
+	float massa = 30;
 
 
 	public Personagem(float x, float y, float z,ObjModel model) {
@@ -65,6 +65,11 @@ public class Personagem extends Object3D {
 				obj.vx = frente.x*vel*(this.massa - obj.massa);
 				obj.vy = frente.y*vel*(this.massa - obj.massa);
 				obj.vz = frente.z*vel*(this.massa - obj.massa);
+
+				/*obj.vx = frente.x*vel*2*this.massa/(this.massa + obj.massa);
+				obj.vy = frente.y*vel*2*this.massa/(this.massa + obj.massa);
+				obj.vz = frente.z*vel*2*this.massa/(this.massa + obj.massa);*/
+
 			}
 			
 		}
