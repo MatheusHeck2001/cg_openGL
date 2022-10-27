@@ -61,12 +61,21 @@ public class Esfera3D extends Object3D {
 				y = oldy;
 				z = oldz;
 
-				obj.vx = frente.x*vel*Math.abs(this.massa - obj.massa);
-				obj.vy = frente.y*vel*Math.abs(this.massa - obj.massa);
-				obj.vz = frente.z*vel*Math.abs(this.massa - obj.massa);
+//				obj.vx = frente.x*vel*Math.abs(this.massa - obj.massa);
+//				obj.vy = frente.y*vel*Math.abs(this.massa - obj.massa);
+//				obj.vz = frente.z*vel*Math.abs(this.massa - obj.massa);
+
+				obj.vx = frente.x*(2*massa/(massa + obj.massa))*vel;
+				obj.vy = frente.y*(2*massa/(massa + obj.massa))*vel;
+				obj.vz = frente.z*(2*massa/(massa + obj.massa))*vel;
 
 				obj.vel = Math.abs(obj.vz);
 
+				vx = frente.x*((massa-obj.massa)/(massa + obj.massa))*vel;
+				vy = frente.y*((massa-obj.massa)/(massa + obj.massa))*vel;
+				vz = frente.z*((massa-obj.massa)/(massa + obj.massa))*vel;
+
+				vel = Math.abs(vz);
 			}
 
 		}
