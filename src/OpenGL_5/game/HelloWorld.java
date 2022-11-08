@@ -62,7 +62,7 @@ public class HelloWorld {
 		
 		tankobj = new ObjModel();
 		tankobj.loadObj("src/OpenGL_5/res/x-35_obj.obj");
-		tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
+		//tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
 		
