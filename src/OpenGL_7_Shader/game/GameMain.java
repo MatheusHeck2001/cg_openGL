@@ -204,9 +204,9 @@ public class GameMain {
 		vbocube.load();
 		
 		//BufferedImage bfm = TextureLoader.loadImage("gatinho01.jpg");
-		BufferedImage bfm1 = TextureLoader.loadImage("src/OpenGL_7_Shader/gatinho01.jpg");
+		BufferedImage bfm1 = TextureLoader.loadImage("src/OpenGL_7_Shader/res/gatinho01.jpg");
 		texturaDoGatinho = TextureLoader.loadTexture(bfm1);
-		BufferedImage bfm2 = TextureLoader.loadImage("src/OpenGL_7_Shader/x35_b.jpg");
+		BufferedImage bfm2 = TextureLoader.loadImage("src/OpenGL_7_Shader/res/x35_b.jpg");
 		texturaDoDennis = TextureLoader.loadTexture(bfm2);
 
 		// Set the clear color
