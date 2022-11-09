@@ -71,7 +71,7 @@ public class GameMain {
 		init();
 		
 		tankobj = new ObjModel();
-		tankobj.loadObj("src/OpenGL_7_Shader/x-35_obj.obj");
+		tankobj.loadObj("src/OpenGL_7_Shader/res/x-35_obj.obj");
 		//tankobj.createTextureBase("src/OpenGL_7_Shader/x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
@@ -196,6 +196,8 @@ public class GameMain {
 		GL.createCapabilities();
 		
 		Constantes.createProjectionMatrix();
+
+		System.out.println(""+GL11.glGetString(GL_SHADING_LANGUAGE_VERSION));
 		
 		ShaderProgram shader = new StaticShader();
 		tankobj.load();
