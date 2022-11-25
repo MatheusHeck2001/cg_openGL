@@ -114,10 +114,10 @@ public class GameMain {
 				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
 			
 			if ( key == GLFW_KEY_W) {
-				//posZ-=0.1f;
+				aviao.setRotX(0.05f);
 			}
 			if ( key == GLFW_KEY_S) {
-//				posZ+=0.1f;
+				aviao.setRotX(-0.05f);
 			}
 			if ( key == GLFW_KEY_A) {
 				aviao.setRotY(0.05f);

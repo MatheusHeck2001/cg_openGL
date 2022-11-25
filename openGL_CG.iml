@@ -25,5 +25,12 @@
     <orderEntry type="library" name="lwjgl_util-2.9.0" level="project" />
     <orderEntry type="library" name="lwjgl_util-2.9.0 (2)" level="project" />
     <orderEntry type="library" name="lwjgl_util-2.9.0" level="project" />
+    <orderEntry type="library" name="lwjgl" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw" level="project" />
+    <orderEntry type="library" name="lwjgl-glfw-natives-windows" level="project" />
+    <orderEntry type="library" name="lwjgl-natives-windows" level="project" />
+    <orderEntry type="library" name="lwjgl-opengl" level="project" />
+    <orderEntry type="library" name="lwjgl-opengl-natives-windows" level="project" />
+    <orderEntry type="library" name="lwjgl_util" level="project" />
   </component>
 </module>

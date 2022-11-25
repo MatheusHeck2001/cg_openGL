@@ -126,8 +126,16 @@ public class Personagem extends Object3D {
 		mat.setRotateY(-ang*57.2957f);
 		Vetor3D vec = mat.multiplicaVetor(new Vetor3D(frente.x, frente.y, frente.z, 1.0f));
 		frente = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
-		
+	}
 
+	public void setRotX(float ang) {
+		rotxAngle+=ang;
+
+		Matriz4x4 mat = new Matriz4x4();
+		mat.setIdentity();
+		mat.setRotateX(ang*57.2957f);
+		Vetor3D vec = mat.multiplicaVetor(new Vetor3D(frente.x, frente.y, frente.z, 1.0f));
+		frente = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
 	}
 
 }
