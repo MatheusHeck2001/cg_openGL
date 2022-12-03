@@ -32,5 +32,6 @@
     <orderEntry type="library" name="lwjgl-opengl" level="project" />
     <orderEntry type="library" name="lwjgl-opengl-natives-windows" level="project" />
     <orderEntry type="library" name="lwjgl_util" level="project" />
+    <orderEntry type="library" name="lwjgl (3)" level="project" />
   </component>
 </module>

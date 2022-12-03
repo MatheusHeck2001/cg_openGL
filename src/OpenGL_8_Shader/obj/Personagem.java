@@ -18,9 +18,9 @@ import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
 
 //import Math3D.Matriz4x4;
-import Math3D.Vetor3D;
-import game.Constantes;
-import shaders.ShaderProgram;
+import OpenGL_8_Shader.Math3D.Vetor3D;
+import OpenGL_8_Shader.game.Constantes;
+import OpenGL_8_Shader.shaders.ShaderProgram;
 
 public class Personagem extends Object3D {
 	Sphere sphere = new Sphere();

@@ -13,13 +13,13 @@ import static org.lwjgl.opengl.GL13.glActiveTexture;
 
 import org.lwjgl.util.glu.*;
 
-import shaders.ShaderProgram;
+import OpenGL_8_Shader.shaders.ShaderProgram;
 
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
-import Model.VboCube;
-import game.Constantes;
+import OpenGL_8_Shader.Model.VboCube;
+import OpenGL_8_Shader.game.Constantes;
 
 public class Esfera3D extends Object3D {
 	//Sphere sphere = new Sphere();

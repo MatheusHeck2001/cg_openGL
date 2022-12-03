@@ -6,25 +6,23 @@ import org.lwjgl.system.*;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
-import Math3D.Matriz4x4;
-import Math3D.Vetor3D;
-import Model.Bilbord;
-import Model.VboCube;
-import obj.Esfera3D;
-import obj.ObjModel;
-import obj.Object3D;
-import obj.Personagem;
-import obj.Projetil;
-import shaders.ShaderProgram;
-import shaders.StaticShader;
-import util.TextureLoader;
+import OpenGL_8_Shader.Math3D.Matriz4x4;
+import OpenGL_8_Shader.Math3D.Vetor3D;
+import OpenGL_8_Shader.Model.Bilbord;
+import OpenGL_8_Shader.Model.VboCube;
+import OpenGL_8_Shader.obj.Esfera3D;
+import OpenGL_8_Shader.obj.ObjModel;
+import OpenGL_8_Shader.obj.Object3D;
+import OpenGL_8_Shader.obj.Personagem;
+import OpenGL_8_Shader.shaders.ShaderProgram;
+import OpenGL_8_Shader.shaders.StaticShader;
+import OpenGL_8_Shader.util.TextureLoader;
 
 import java.awt.image.BufferedImage;
 
 //import com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl;
 
 import java.nio.*;
-import java.util.ArrayList;
 import java.util.Random;
 
 import static org.lwjgl.glfw.Callbacks.*;
@@ -74,7 +72,7 @@ public class GameMain {
 		init();
 		
 		tankobj = new ObjModel();
-		tankobj.loadObj("x-35_obj.obj");
+		tankobj.loadObj("src/res/x-35_obj.obj");
 		tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
@@ -250,12 +248,12 @@ public class GameMain {
 		Constantes.bilbord.load();
 		
 		//BufferedImage bfm = TextureLoader.loadImage("gatinho01.jpg");
-		BufferedImage bfm1 = TextureLoader.loadImage("gatinho01.jpg");
+		BufferedImage bfm1 = TextureLoader.loadImage("src/res/gatinho01.jpg");
 		Constantes.texturaDoGatinho = TextureLoader.loadTexture(bfm1);
-		BufferedImage bfm2 = TextureLoader.loadImage("x35_b.jpg");
+		BufferedImage bfm2 = TextureLoader.loadImage("src/res/x35_b.jpg");
 		Constantes.texturaDoDennis = TextureLoader.loadTexture(bfm2);
 		
-		BufferedImage bfm3 = TextureLoader.loadImage("Tiro01.png");
+		BufferedImage bfm3 = TextureLoader.loadImage("src/res/Tiro01.png");
 		Constantes.texturaTiro = TextureLoader.loadTexture(bfm3);
 
 		// Set the clear color

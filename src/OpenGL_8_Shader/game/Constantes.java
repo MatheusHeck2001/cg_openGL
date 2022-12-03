@@ -7,9 +7,9 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.util.vector.Matrix4f;
 
-import Model.Bilbord;
-import Model.VboCube;
-import obj.Object3D;
+import OpenGL_8_Shader.Model.Bilbord;
+import OpenGL_8_Shader.Model.VboCube;
+import OpenGL_8_Shader.obj.Object3D;
 
 public class Constantes {
 	

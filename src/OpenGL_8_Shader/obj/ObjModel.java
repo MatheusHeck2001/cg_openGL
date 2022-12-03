@@ -31,9 +31,9 @@ import org.lwjgl.BufferUtils;
 import org.lwjgl.util.vector.Vector2f;
 import org.lwjgl.util.vector.Vector3f;
 
-import Math3D.Matriz4x4;
-import Math3D.Vetor3D;
-import Model.Model;
+import OpenGL_8_Shader.Math3D.Matriz4x4;
+import OpenGL_8_Shader.Math3D.Vetor3D;
+import OpenGL_8_Shader.Model.Model;
 
 public class ObjModel extends Model{
 	public ArrayList<Vector3f> v;

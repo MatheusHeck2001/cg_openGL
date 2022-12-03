@@ -13,12 +13,12 @@ import org.lwjgl.system.MemoryUtil;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
-import Math3D.Matriz4x4;
-import Model.Bilbord;
-import Model.VboCube;
-import game.Constantes;
-import game.GameMain;
-import shaders.ShaderProgram;
+import OpenGL_8_Shader.Math3D.Matriz4x4;
+import OpenGL_8_Shader.Model.Bilbord;
+import OpenGL_8_Shader.Model.VboCube;
+import OpenGL_8_Shader.game.Constantes;
+import OpenGL_8_Shader.game.GameMain;
+import OpenGL_8_Shader.shaders.ShaderProgram;
 
 public class Projetil extends Object3D {
 	public Bilbord bilbord = null;

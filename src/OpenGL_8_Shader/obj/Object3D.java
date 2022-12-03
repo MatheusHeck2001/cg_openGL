@@ -1,6 +1,6 @@
 package OpenGL_8_Shader.obj;
 
-import shaders.ShaderProgram;
+import OpenGL_8_Shader.shaders.ShaderProgram;
 
 public class Object3D {
 	public float x;
