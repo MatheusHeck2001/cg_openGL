@@ -1,0 +1,25 @@
+#version 330 core
+
+uniform sampler2D tex;
+uniform float[3] luz;
+
+in vec3 color;
+in vec3 norm;
+in vec2 uv;
+
+out vec4 out_Color;
+
+void main(void){
+	vec4 colort = texture2D(tex,uv);
+	
+	vec4 newColor = vec4(colort);
+	
+	//if(colort.r==0){
+	//	newColor = vec4(colort.xyz,0.0);
+	//}
+	
+	
+	
+	out_Color = newColor;
+
+}
