@@ -195,8 +195,8 @@ public class Personagem extends Object3D {
 		Matrix4f.transform(mat, new Vector4f(frente.x, frente.y, frente.z, 1.0f), vec);
 		frente = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
 
-		mat.transform(mat, new Vector4f(direita.x, direita.y, direita.z, 1.0f), vec);
-		direita = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
+		mat.transform(mat, new Vector4f(up.x, up.y, up.z, 1.0f), vec);
+		up = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
 	}
 	
 	public void setRotZ(float ang) {
