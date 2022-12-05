@@ -38,6 +38,9 @@ public class Personagem extends Object3D {
 	
 	float raio = 0.4f;
 	FloatBuffer matrixBuffer = MemoryUtil.memAllocFloat(16);
+
+	public boolean rotateUp = false;
+	public boolean rotateDown = false;
 	
 	public boolean rotateLeft = false;
 	public boolean rotateRight = false;
@@ -71,6 +74,15 @@ public class Personagem extends Object3D {
 			float angrot = 1.5707f*diftime/1000.0f;
 			setRotY(-angrot);
 		}
+
+		if(rotateUp) {
+			float angrot = 1.5707f*diftime/1000.0f;
+			setRotX(angrot);
+		}
+		if(rotateDown) {
+			float angrot = 1.5707f*diftime/1000.0f;
+			setRotX(-angrot);
+		}
 		
 		if(rotateZplus) {
 			float angrot = 1.5707f*diftime/1000.0f;
@@ -84,9 +96,8 @@ public class Personagem extends Object3D {
 		x += frente.x*vel*diftime/1000.0f;
 		y += frente.y*vel*diftime/1000.0f;
 		z += frente.z*vel*diftime/1000.0f;
-		//System.out.println("frente.x "+frente.x+" frente.y "+frente.y+" frente.z "+frente.z+" vel "+vel+" diftime "+diftime);
-		
-		//Testar Colis�o
+
+		//Testar Colisao
 		
 		for(int i = 0; i < Constantes.listaDeObjetos.size();i++) {
 			Object3D obj = Constantes.listaDeObjetos.get(i);
@@ -108,10 +119,7 @@ public class Personagem extends Object3D {
 				obj.vx = frente.x*vel*1.5f;
 				obj.vy = frente.y*vel*1.5f;
 				obj.vz = frente.z*vel*1.5f;
-				
-				continue;
 			}
-			
 		}
 		
 		if(FIRE&&timertiro>100) {
@@ -131,32 +139,16 @@ public class Personagem extends Object3D {
 			p.bilbord = Constantes.bilbord;
 			p.pai = this;
 			
-			Constantes.listaDeObjetos.add(p);			
-			//System.out.println("Add P "+Constantes.listaDeObjetos.size());
+			Constantes.listaDeObjetos.add(p);
 			timertiro = 0;
 		}
-		
 	}
 	
 	@Override
 	public void DesenhaSe(ShaderProgram shader) {
-//		   glPushMatrix();
-//		   
-//		   glTranslatef(x, y, z);
-//		   glRotatef(rotxAngle, 1.0f, 0.0f, 0.0f);
-//		   glRotatef(rotyAngle, 0.0f, 1.0f, 0.0f);
-//		   glRotatef(rotzAngle, 0.0f, 0.0f, 1.0f);
-//		  
-//
-//		   glColor3f(1.0f,0.0f ,0.0f );
-//		   sphere.draw(raio, 16, 16);
-//		   
-//		   glScalef(0.01f, 0.01f, 0.01f);
-		
 			Matrix4f modelm = new Matrix4f();
 			modelm.setIdentity();
-			
-			//System.out.println(""+x+" "+y+" "+z);
+
 			modelm.translate(new Vector3f(x,y,z));
 			
 			modelm.rotate(rotxAngle, new Vector3f(1.0f, 0.0f, 0.0f));
@@ -164,45 +156,41 @@ public class Personagem extends Object3D {
 			modelm.rotate(rotzAngle, new Vector3f(0.0f, 0.0f, 1.0f));
 			modelm.scale(new Vector3f(0.005f,0.005f,0.005f));
 			
-			
-			
 			int modellocation = glGetUniformLocation(shader.programID, "model");
 			
 			modelm.storeTranspose(matrixBuffer);
 			matrixBuffer.flip();
 			glUniformMatrix4fv(modellocation, false, matrixBuffer);	
 		   		   
-		    model.draw();//desenhaOPENGL();
-		   
-		   //glPopMatrix();
+		    model.draw();
 	}
-	
-	
 	
 	public void setRotY(float ang) {
 		rotyAngle+=ang;
 		
 		Matrix4f mat = new Matrix4f();
 		mat.rotate(ang, up);
-		
-		
-		//Matriz4x4 mat = new Matriz4x4();
-		//mat.setIdentity();
-		
-		//mat.setRotateY(-ang*57.2957f);
+
 		Vector4f vec = new Vector4f();
 		Matrix4f.transform(mat, new Vector4f(frente.x, frente.y, frente.z, 1.0f), vec);
 		frente = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
-		//System.out.println("");
 		
 		mat.transform(mat, new Vector4f(direita.x, direita.y, direita.z, 1.0f), vec);
 		direita = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
-		
-		//Vetor3D vec = mat.multiplicaVetor(new Vetor3D(frente.x, frente.y, frente.z, 1.0f));
-		//frente = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
-		//vec = mat.multiplicaVetor(new Vetor3D(direita.x, direita.y, direita.z, 1.0f));
-		//direita = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
+	}
 
+	public void setRotX(float ang) {
+		rotxAngle+=ang;
+
+		Matrix4f mat = new Matrix4f();
+		mat.rotate(ang, direita);
+
+		Vector4f vec = new Vector4f();
+		Matrix4f.transform(mat, new Vector4f(frente.x, frente.y, frente.z, 1.0f), vec);
+		frente = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
+
+		mat.transform(mat, new Vector4f(direita.x, direita.y, direita.z, 1.0f), vec);
+		direita = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
 	}
 	
 	public void setRotZ(float ang) {
@@ -210,15 +198,12 @@ public class Personagem extends Object3D {
 		
 		Matrix4f mat = new Matrix4f();
 		mat.rotate(ang, frente);
-		
-		
+
 		Vector4f vec = new Vector4f();
 		Matrix4f.transform(mat, new Vector4f(up.x, up.y, up.z, 1.0f), vec);
 		up = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
 
 		mat.transform(mat, new Vector4f(direita.x, direita.y, direita.z, 1.0f), vec);
 		direita = new Vector3f((float)vec.x,(float)vec.y,(float)vec.z);
-
 	}
-
 }

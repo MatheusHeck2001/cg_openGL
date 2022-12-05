@@ -116,13 +116,20 @@ public class GameMain {
 				glfwSetWindowShouldClose(window, true); // We will detect this in the rendering loop
 			
 			if ( key == GLFW_KEY_W) {
-				//posZ-=0.1f;
+				if(action == GLFW_PRESS) {
+					aviao.rotateUp = true;
+				}else if(action == GLFW_RELEASE) {
+					aviao.rotateUp = false;
+				}
 			}
 			if ( key == GLFW_KEY_S) {
-//				posZ+=0.1f;
+				if(action == GLFW_PRESS) {
+					aviao.rotateDown = true;
+				}else if(action == GLFW_RELEASE) {
+					aviao.rotateDown = false;
+				}
 			}
 			if ( key == GLFW_KEY_A) {
-				//aviao.setRotY(0.05f);
 				if(action == GLFW_PRESS) {
 					aviao.rotateLeft = true;
 				}else if(action == GLFW_RELEASE) {
@@ -130,7 +137,6 @@ public class GameMain {
 				}
 			}
 			if ( key == GLFW_KEY_D) {
-				//aviao.setRotY(-0.05f);
 				if(action == GLFW_PRESS) {
 					aviao.rotateRight = true;
 				}else if(action == GLFW_RELEASE) {
@@ -139,7 +145,6 @@ public class GameMain {
 			}
 			
 			if ( key == GLFW_KEY_Q) {
-				//aviao.setRotY(0.05f);
 				if(action == GLFW_PRESS) {
 					aviao.rotateZplus = true;
 				}else if(action == GLFW_RELEASE) {
@@ -147,7 +152,6 @@ public class GameMain {
 				}
 			}
 			if ( key == GLFW_KEY_E) {
-				//aviao.setRotY(-0.05f);
 				if(action == GLFW_PRESS) {
 					aviao.rotateZminus = true;
 				}else if(action == GLFW_RELEASE) {
@@ -156,32 +160,12 @@ public class GameMain {
 			}			
 			
 			if ( key == GLFW_KEY_SPACE) {
-				
 				if(action == GLFW_PRESS) {
 					aviao.FIRE = true;
 				}else if(action == GLFW_RELEASE) {
 					aviao.FIRE = false;
 				}
-				
 			}
-//			if ( key == GLFW_KEY_Q) {
-//				rotxAngle+=15;
-//			}
-//			if ( key == GLFW_KEY_E) {
-//				rotxAngle-=15;
-//			}
-//			if ( key == GLFW_KEY_Z) {
-//				rotyAngle+=15;
-//			}
-//			if ( key == GLFW_KEY_X) {
-//				rotyAngle-=15;
-//			}
-//			if ( key == GLFW_KEY_N) {
-//				rotzAngle+=15;
-//			}
-//			if ( key == GLFW_KEY_M) {
-//				rotzAngle-=15;
-//			}
 		});
 
 		// Get the thread stack and push a new frame
