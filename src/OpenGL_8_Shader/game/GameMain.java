@@ -269,9 +269,14 @@ public class GameMain {
 			for(int i = 0; i < Constantes.listaDeObjetos.size();i++) {
 				Object3D obj = Constantes.listaDeObjetos.get(i);
 				obj.SimulaSe(difTime);
-				if(obj.vivo==false) {
+				System.out.println(aviao.life);
+				if(!obj.vivo) {
 					Constantes.listaDeObjetos.remove(i);
 					i--;
+				}
+				if (!aviao.vivo){
+					System.out.println("MORREU");
+					return;
 				}
 			}
 			
