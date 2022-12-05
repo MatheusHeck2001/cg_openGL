@@ -115,10 +115,16 @@ public class Personagem extends Object3D {
 				x = oldx;
 				y = oldy;
 				z = oldz;
-				
-				obj.vx = frente.x*vel*1.5f;
+
+				life -= 50;
+				if(life<=0) {
+					vivo = false;
+				}
+
+				obj.vivo = false;
+				/*obj.vx = frente.x*vel*1.5f;
 				obj.vy = frente.y*vel*1.5f;
-				obj.vz = frente.z*vel*1.5f;
+				obj.vz = frente.z*vel*1.5f;*/
 			}
 		}
 		
