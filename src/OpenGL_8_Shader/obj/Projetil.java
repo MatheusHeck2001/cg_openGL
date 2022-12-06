@@ -8,14 +8,13 @@ import static org.lwjgl.opengl.GL20.glGetUniformLocation;
 import static org.lwjgl.opengl.GL20.glUniformMatrix4fv;
 
 import java.nio.FloatBuffer;
+import java.util.Random;
 
 import org.lwjgl.system.MemoryUtil;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 
-import OpenGL_8_Shader.Math3D.Matriz4x4;
 import OpenGL_8_Shader.Model.Bilbord;
-import OpenGL_8_Shader.Model.VboCube;
 import OpenGL_8_Shader.game.Constantes;
 import OpenGL_8_Shader.game.GameMain;
 import OpenGL_8_Shader.shaders.ShaderProgram;
@@ -41,8 +40,7 @@ public class Projetil extends Object3D {
 		Matrix4f modelm = new Matrix4f();
 		modelm.setIdentity();
 		
-		//System.out.println(""+x+" "+y+" "+z);
-		modelm.translate(new Vector3f(x,y,z)); 
+		modelm.translate(new Vector3f(x,y,z));
 		modelm.scale(new Vector3f(raio,raio,raio));
 		modelm.rotate(GameMain.aviao.rotyAngle,new Vector3f(0,1,0));
 		

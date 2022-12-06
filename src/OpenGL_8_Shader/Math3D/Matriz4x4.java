@@ -1,5 +1,4 @@
 package OpenGL_8_Shader.Math3D;
-import java.util.Vector;
 
 public class Matriz4x4 {
 	double amatriz[][] = new double[4][4];
@@ -175,7 +174,6 @@ public class Matriz4x4 {
 	            }
 	        }
 	    }
-
 	    return result;
 	}
 	

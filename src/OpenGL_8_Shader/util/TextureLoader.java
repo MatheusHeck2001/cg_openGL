@@ -28,8 +28,6 @@ public class TextureLoader {
                     buffer.put((byte) ((pixel >> 8) & 0xFF));      // Green component
                     buffer.put((byte) (pixel & 0xFF));               // Blue component
                     buffer.put((byte) ((pixel >> 24) & 0xFF));    // Alpha component. Only for RGBA
-                    //if(((pixel >> 24) & 0xFF)<255)
-                    //System.out.println("ALPHA "+((pixel >> 24) & 0xFF) );
                 }
             }
 

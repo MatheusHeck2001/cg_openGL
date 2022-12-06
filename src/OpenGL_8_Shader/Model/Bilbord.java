@@ -97,19 +97,11 @@ public class Bilbord extends Model{
 		glBindBuffer(GL_ARRAY_BUFFER, vbo_color_handle);
 		glEnableVertexAttribArray(1);
 		glVertexAttribPointer(1,color_size,GL_FLOAT,false,0,0);
-		//glColorPointer(color_size, GL_FLOAT, 0, 0l);
 		
 		glBindBuffer(GL_ARRAY_BUFFER, vbo_texture_handle);
 		glEnableVertexAttribArray(3);
 		glVertexAttribPointer(3,texture_size,GL_FLOAT,false,0,0);
-		//glColorPointer(color_size, GL_FLOAT, 0, 0l);
-
-		//glEnableClientState(GL_VERTEX_ARRAY);
-		//glEnableClientState(GL_COLOR_ARRAY);
 
 		glDrawArrays(GL_TRIANGLES, 0, vertices);
-
-		//glDisableClientState(GL_COLOR_ARRAY);
-		//glDisableClientState(GL_VERTEX_ARRAY);
 	}
 }

@@ -18,9 +18,8 @@ import OpenGL_8_Shader.shaders.ShaderProgram;
 import OpenGL_8_Shader.shaders.StaticShader;
 import OpenGL_8_Shader.util.TextureLoader;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
-
-//import com.sun.org.apache.xerces.internal.dom.DeepNodeListImpl;
 
 import java.nio.*;
 import java.util.Random;
@@ -32,37 +31,22 @@ import static org.lwjgl.opengl.GL20.*;
 import static org.lwjgl.system.MemoryStack.*;
 import static org.lwjgl.system.MemoryUtil.*;
 
-
-
 public class GameMain {
 
 	// The window handle
 	private long window;
 	ObjModel tankobj = null;
 
-	Random rnd = new Random(); 
-
-	
+	Random rnd = new Random();
 
 	int windowW = 1200;
 	int windowH = 1000;
 	
 	public static Personagem aviao;
-	//AVIAO
-//	float posX = 0;
-//	float posY = -0.75f;
-//	float posZ = -2.0f;
-	
-	float rotxAngle = 0;
-	float rotyAngle = 100;
-	float rotzAngle = 0;
-	
-	float vel = 0.5f;
 
-	
-	
 	Vector3f posCameraVector = new Vector3f(0.0f,0.5f,-2.0f);
-	
+
+
 	public void run() {
 		System.out.println("Hello LWJGL " + Version.getVersion() + "!");
 
@@ -76,9 +60,7 @@ public class GameMain {
 		tankobj.createTextureBase("./x-35_obj.jpg", 1024, 1024);
 		
 		aviao = new Personagem(0, -0.75f, -2.0f, tankobj);
-		
-		
-		
+
 		loop();
 
 		// Free the window callbacks and destroy the window
@@ -194,8 +176,7 @@ public class GameMain {
 
 		// Make the window visible
 		glfwShowWindow(window);
-		
-		
+
 		GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MAJOR, 3);
 		GLFW.glfwWindowHint(GLFW.GLFW_CONTEXT_VERSION_MINOR, 2);
 		GLFW.glfwWindowHint(GLFW.GLFW_OPENGL_FORWARD_COMPAT, GL11.GL_TRUE);
@@ -206,12 +187,14 @@ public class GameMain {
 				Esfera3D esf = new Esfera3D(i-10,rnd.nextFloat()*4-2,-j-4,rnd.nextFloat()*0.25f+0.01f);
 				esf.cor = new Vector3f(rnd.nextFloat(), rnd.nextFloat(), rnd.nextFloat());
 				esf.vbocube = Constantes.vbocube;
+
+				esf.life = rnd.nextFloat()*300;
+				System.out.println(esf.life);
 				
 				Constantes.listaDeObjetos.add(esf);
 			}
 		}
-		
-		
+
 	}
 
 	long difTime = 0;
@@ -230,9 +213,8 @@ public class GameMain {
 		tankobj.load();
 		Constantes.vbocube.load();
 		Constantes.bilbord.load();
-		
-		//BufferedImage bfm = TextureLoader.loadImage("gatinho01.jpg");
-		BufferedImage bfm1 = TextureLoader.loadImage("src/res/gatinho01.jpg");
+
+		BufferedImage bfm1 = TextureLoader.loadImage("src/res/nave2.png");
 		Constantes.texturaDoGatinho = TextureLoader.loadTexture(bfm1);
 		BufferedImage bfm2 = TextureLoader.loadImage("src/res/x35_b.jpg");
 		Constantes.texturaDoDennis = TextureLoader.loadTexture(bfm2);
@@ -279,11 +261,9 @@ public class GameMain {
 					return;
 				}
 			}
-			
-			
+
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-			
-			
+
 			glEnable(GL_LIGHTING);
 			   glShadeModel(GL_SMOOTH);
 			   
@@ -307,39 +287,14 @@ public class GameMain {
 		       glLightfv(GL_LIGHT1, GL_POSITION,lightPosition2);
 		       
 		       glEnable(GL_LIGHT0);		
-		       //glEnable(GL_LIGHT1);	
 			   glEnable(GL_COLOR_MATERIAL);
-		       //glColorMaterial(GL_FRONT, GL_DIFFUSE);	
-		       
+
 		       glColorMaterial(GL_FRONT, GL_AMBIENT_AND_DIFFUSE);
-
-		       //float[] mat_ambient = {0.1f, 0.1f, 0.1f, 1.0f};
-		       //float[] mat_diffuse = { 0.1f, 0.1f, 0.1f, 1.0f };
-		       //float[] mat_specular = { 0.0f, 0.0f, 0.0f, 0.0f };
-		       //float[] mat_shininess = {0.0f,0,0,0 };
-
-		       //glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-		       //glMaterialfv(GL_FRONT, GL_DIFFUSE, mat_diffuse);
-		       //glMaterialfv(GL_FRONT, GL_SPECULAR, mat_specular);
-		       //glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
-		       
-		       //glEnable(GL_BLEND);
 		    
 		    shader.start();   
 
 			angle++;
 			glEnable(GL_DEPTH_TEST);
-			
-			
-//			glLoadIdentity();
-//			
-//			glTranslated(-aviao.x,-(aviao.y+0.75f),-(aviao.z+2.0f));
-			//GLU.gluLookAt(posX,posY+0.75f,posZ+2.0f,posX,posY+0.75f,posZ,0.0f,1.0f,0.0f);
-			
-
-
-		   //glEnable(GL_TEXTURE_2D);
-		   //glBindTexture(GL_TEXTURE_2D, texturaDoDennis);
 		   
 			glEnable(GL_BLEND);
 			glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
@@ -350,43 +305,24 @@ public class GameMain {
 	        int loctexture = glGetUniformLocation(shader.programID, "tex");
 	        glUniform1i(loctexture, 0);
 			
-	        //aviao.x = 0;
-	        //aviao.y = 0;
-	        //aviao.z = 0;
-	        
-			//Matrix4f projection = new Matrix4f();
-			//projection.setIdentity();
-			//projection.setPerspective((float) Math.PI / 2, (float) windowW / (float) windowH, 0.1f, 100f);
-			
-			//int viewlocation = glGetUniformLocation(shader.programID, "view");
-			
-			//view.storeTranspose(matrixBuffer);
-			//matrixBuffer.flip();
-			//glUniformMatrix4fv(viewlocation, false, matrixBuffer);	
-			
-	        // SETA E CARREGA PROJECTON MATRIX
+	        // SETA E CARREGA PROJECTION MATRIX
 			int projlocation = glGetUniformLocation(shader.programID, "projection");
 			
 			Constantes.projectionMatrix.storeTranspose(matrixBuffer);
 			matrixBuffer.flip();
-			glUniformMatrix4fv(projlocation, false, matrixBuffer);	
-			
-			
+			glUniformMatrix4fv(projlocation, false, matrixBuffer);
 			
 			// SETA E CARREGA VIEW MATRIX
 			Matriz4x4 mat = new Matriz4x4();
 			mat.setIdentity();
 			mat.setRotateY(-(aviao.rotyAngle*57.2957f));
 			Vetor3D vec = mat.multiplicaVetor(new Vetor3D(posCameraVector.x, posCameraVector.y, posCameraVector.z, 1.0f));			
-			
-			
+
 			Matrix4f view = new Matrix4f();
 			view.setIdentity();
 			view.rotate(-(aviao.rotyAngle+(float)Math.PI), new Vector3f(0,1,0));
 			view.translate(new Vector3f(-(aviao.x+(float)vec.x),-(aviao.y+(float)vec.y),-(aviao.z+(float)vec.z)));
-			
-			//view.translate(new Vector3f(0,0,0));
-			
+
 			int viewlocation = glGetUniformLocation(shader.programID, "view");
 			
 			view.storeTranspose(matrixBuffer);
@@ -401,21 +337,8 @@ public class GameMain {
 	        glBindTexture(GL_TEXTURE_2D, Constantes.texturaDoDennis);
 	        
 			aviao.DesenhaSe(shader);
-		   //vbocube.draw();
-		   
-		   shader.stop();
-		   
-//		   glPushMatrix();
-//		   
-//		   glBindTexture(GL_TEXTURE_2D, texturaDoGatinho);
-//		   glTranslated(0, 0.5, 0);
-//		   glRotatef(90, 1.0f, 0.0f, 0.0f);
-//		   glScalef(0.005f, 0.005f, 0.005f);   
-//		   tankobj.desenhaOPENGL();
-//		   
-//		   glPopMatrix();
-		   
 
+		   shader.stop();
 			
 			glfwSwapBuffers(window); // swap the color buffers
 
@@ -430,7 +353,6 @@ public class GameMain {
 				frame=0;
 				lasttime = actualTime;
 			}
-			
 		}
 	}
 

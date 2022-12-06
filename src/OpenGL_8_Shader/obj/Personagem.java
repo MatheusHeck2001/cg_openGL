@@ -1,53 +1,38 @@
 package OpenGL_8_Shader.obj;
-
-import static org.lwjgl.opengl.GL11.glColor3f;
-import static org.lwjgl.opengl.GL11.glPopMatrix;
-import static org.lwjgl.opengl.GL11.glPushMatrix;
-import static org.lwjgl.opengl.GL11.glRotatef;
-import static org.lwjgl.opengl.GL11.glScalef;
-import static org.lwjgl.opengl.GL11.glTranslatef;
 import static org.lwjgl.opengl.GL20.glGetUniformLocation;
 import static org.lwjgl.opengl.GL20.glUniformMatrix4fv;
 
 import java.nio.FloatBuffer;
+import java.util.Random;
 
+import org.lwjgl.opengl.GL11;
 import org.lwjgl.system.MemoryUtil;
 import org.lwjgl.util.glu.Sphere;
 import org.lwjgl.util.vector.Matrix4f;
 import org.lwjgl.util.vector.Vector3f;
 import org.lwjgl.util.vector.Vector4f;
 
-//import Math3D.Matriz4x4;
-import OpenGL_8_Shader.Math3D.Vetor3D;
 import OpenGL_8_Shader.game.Constantes;
 import OpenGL_8_Shader.shaders.ShaderProgram;
 
 public class Personagem extends Object3D {
 	Sphere sphere = new Sphere();
-	
 	ObjModel model = null;
 	float vel = 2.0f;
-	
 	public float rotxAngle = 0;
 	public float rotyAngle = (float)Math.PI;
 	public float rotzAngle = 0;
-	
 	public Vector3f frente;
 	public Vector3f direita;
 	public Vector3f up;
-	
 	float raio = 0.4f;
 	FloatBuffer matrixBuffer = MemoryUtil.memAllocFloat(16);
-
 	public boolean rotateUp = false;
 	public boolean rotateDown = false;
-	
 	public boolean rotateLeft = false;
 	public boolean rotateRight = false;
-	
 	public boolean rotateZplus = false;
 	public boolean rotateZminus = false;
-	
 	public boolean FIRE = false;
 	int timertiro = 0;
 
@@ -116,15 +101,11 @@ public class Personagem extends Object3D {
 				y = oldy;
 				z = oldz;
 
-				life -= 50;
+				life -= new Random().nextFloat() * 50;
 				if(life<=0) {
 					vivo = false;
 				}
-
 				obj.vivo = false;
-				/*obj.vx = frente.x*vel*1.5f;
-				obj.vy = frente.y*vel*1.5f;
-				obj.vz = frente.z*vel*1.5f;*/
 			}
 		}
 		

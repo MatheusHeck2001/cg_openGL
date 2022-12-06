@@ -1,10 +1,6 @@
 package OpenGL_8_Shader.game;
-
-import java.nio.IntBuffer;
 import java.util.ArrayList;
 
-import org.lwjgl.BufferUtils;
-import org.lwjgl.glfw.GLFW;
 import org.lwjgl.util.vector.Matrix4f;
 
 import OpenGL_8_Shader.Model.Bilbord;
@@ -18,7 +14,6 @@ public class Constantes {
 	private static final float FAR_PLANE = 1000.0f;
 	private static int windowW = 1200;
 	private static int windowH = 1000;
-	
 	public static Matrix4f projectionMatrix;
 
     public static void createProjectionMatrix(){

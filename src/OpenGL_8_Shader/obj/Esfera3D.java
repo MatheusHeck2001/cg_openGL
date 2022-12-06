@@ -22,13 +22,12 @@ import OpenGL_8_Shader.Model.VboCube;
 import OpenGL_8_Shader.game.Constantes;
 
 public class Esfera3D extends Object3D {
-	//Sphere sphere = new Sphere();
+
 	public Vector3f cor = new Vector3f();
 	public VboCube vbocube = null;
 	
 	FloatBuffer matrixBuffer = MemoryUtil.memAllocFloat(16);
-	
-	
+
 	public Esfera3D(float x, float y, float z, float r) {
 		super(x, y, z);
 		raio = r;
@@ -36,23 +35,12 @@ public class Esfera3D extends Object3D {
 	
 	@Override
 	public void DesenhaSe(ShaderProgram shader) {
-//		glPushMatrix();
-//		
-//	    glDisable(GL_TEXTURE_2D);
-//	    glColor3f(cor.x, cor.y, cor.z);
-//	    
-//		glTranslatef(x,y,z);
-//		
-//		sphere.draw(raio, 16, 16);
-//		
-//		glPopMatrix();
         glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, Constantes.texturaDoGatinho);
 		
 		Matrix4f modelm = new Matrix4f();
 		modelm.setIdentity();
-		
-		//System.out.println(""+x+" "+y+" "+z);
+
 		modelm.translate(new Vector3f(x,y,z));
 		modelm.scale(new Vector3f(raio,raio,raio));
 		
@@ -68,9 +56,5 @@ public class Esfera3D extends Object3D {
 	@Override
 	public void SimulaSe(long diftime) {
 		super.SimulaSe(diftime);
-		
-		//x += vx*diftime/1000.0f;
-		//y += vy*diftime/1000.0f;
-		//z += vz*diftime/1000.0f;
 	}
 }
